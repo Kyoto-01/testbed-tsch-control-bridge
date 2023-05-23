@@ -14,7 +14,7 @@ conf = configure_from_file(CONFIG_FILE)
 app = Flask(__name__)
 
 
-@app.get('/control')
+@app.post('/control')
 def send_to_control_bridge():
     req = request.json
     

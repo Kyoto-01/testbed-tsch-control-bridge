@@ -19,7 +19,7 @@ class BridgeController:
         self._queue = queue 
 
     def send(self):
-        res = ('OK', 200)
+        res = ('Accepted.', 202)
 
         try:
             assert decoder.check_message_format(self._request)
@@ -31,6 +31,6 @@ class BridgeController:
             ).publish(self._request)
 
         except (AssertionError, JSONDecodeError):
-            res = ('Request body outside protocol definition.', 400)
+            res = ('Bad Request.', 400)
 
         return res
